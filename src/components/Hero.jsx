@@ -33,8 +33,7 @@ export function Hero() {
       <div className="absolute bottom-0 inset-x-0 h-36 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none z-[1]" />
       <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[#050505]/80 to-transparent pointer-events-none z-[1]" />
 
-      {/* Atmospheric Radial Spotlights (Soft warm bronze fill) */}
-      <div className="absolute inset-0 spotlight-warm pointer-events-none z-0" />
+      {/* Atmospheric Soft Charcoal Fill */}
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[550px] h-[550px] spotlight-charcoal pointer-events-none z-0" />
 
       {/* Hero Foreground Content: Balanced 2-Column Composition */}
@@ -170,12 +169,12 @@ export function Hero() {
             className="lg:col-span-5 flex flex-col items-center justify-center relative"
           >
             {/* View Mode Switcher */}
-            <div className="mb-4 flex items-center p-1 rounded-full bg-noir-900/90 border border-white/15 backdrop-blur-2xl shadow-xl">
+            <div className="mb-4 flex items-center p-1 rounded-full bg-slate-900/90 border border-white/15 backdrop-blur-2xl shadow-xl">
               <button
                 onClick={() => setViewMode('photo')}
                 className={`px-3.5 py-1 rounded-full text-[11px] font-mono transition-all flex items-center gap-1.5 ${
                   viewMode === 'photo'
-                    ? 'bg-bronze-500 text-noir-950 font-bold shadow-bronze-glow'
+                    ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-slate-950 font-bold shadow-[0_0_20px_-3px_rgba(34,211,238,0.5)]'
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
@@ -186,7 +185,7 @@ export function Hero() {
                 onClick={() => setViewMode('avatar')}
                 className={`px-3.5 py-1 rounded-full text-[11px] font-mono transition-all flex items-center gap-1.5 ${
                   viewMode === 'avatar'
-                    ? 'bg-bronze-500 text-noir-950 font-bold shadow-bronze-glow'
+                    ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold shadow-[0_0_20px_-3px_rgba(168,85,247,0.5)]'
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
@@ -197,17 +196,17 @@ export function Hero() {
 
             {/* Authentic Profile Card in Premium Frosted Glass Frame */}
             <div className="w-full max-w-sm relative group">
-              {/* Subtle Glowing Border */}
-              <div className="absolute -inset-1 bg-gradient-to-tr from-bronze-500/25 via-amber-muted/15 to-bronze-400/25 rounded-3xl blur-xl opacity-50 group-hover:opacity-90 transition duration-700 pointer-events-none" />
+              {/* Original Electric-Blue & Violet Subtle Glowing Rim (Preserved from original implementation) */}
+              <div className="absolute -inset-1 bg-gradient-to-tr from-blue-600/30 via-cyan-400/25 to-purple-600/35 rounded-3xl blur-xl opacity-50 group-hover:opacity-90 transition duration-700 pointer-events-none" />
 
               {/* Glass Frame Container */}
-              <div className="relative rounded-2xl bg-noir-900/90 border border-white/15 p-5 backdrop-blur-2xl shadow-2xl space-y-4 transition-all duration-500 group-hover:border-bronze-400/50 group-hover:shadow-portrait-shadow">
+              <div className="relative rounded-2xl bg-[#080c14]/90 border border-white/15 p-5 backdrop-blur-2xl shadow-2xl space-y-4 transition-all duration-500 group-hover:border-cyan-400/40 group-hover:shadow-[0_20px_60px_-15px_rgba(37,99,235,0.3)]">
                 
                 {/* HUD Header */}
                 <div className="flex items-center justify-between border-b border-white/10 pb-3">
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                    <span className="text-[11px] font-mono tracking-wider text-bronze-300 font-semibold">
+                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                    <span className="text-[11px] font-mono tracking-wider text-cyan-300 font-semibold">
                       AUTHENTIC PROFILE • VERIFIED
                     </span>
                   </div>
@@ -216,14 +215,14 @@ export function Hero() {
                   </span>
                 </div>
 
-                {/* Profile Visual Display */}
-                <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-white/15 bg-noir-950 shadow-inner group/img">
+                {/* Profile Visual Display Container (Aspect 4/5, Completely Unobstructed) */}
+                <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-white/15 bg-slate-950 shadow-inner group/img">
                   {viewMode === 'avatar' ? (
-                    <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center space-y-3 bg-gradient-to-b from-noir-900 to-noir-950">
-                      <div className="w-16 h-16 rounded-full bg-bronze-500/20 border border-bronze-500/40 flex items-center justify-center text-bronze-300">
+                    <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center space-y-3 bg-gradient-to-b from-slate-900 to-slate-950">
+                      <div className="w-16 h-16 rounded-full bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-300 shadow-[0_0_25px_rgba(168,85,247,0.4)]">
                         <Orbit className="w-8 h-8 animate-spin-slow" />
                       </div>
-                      <p className="text-xs font-mono text-bronze-300 font-semibold">
+                      <p className="text-xs font-mono text-cyan-300 font-semibold">
                         Interactive 3D Stylized Character
                       </p>
                       <p className="text-[11px] text-slate-400">
@@ -231,38 +230,42 @@ export function Hero() {
                       </p>
                     </div>
                   ) : (
-                    <>
-                      {/* ORIGINAL AUTHENTIC PROFILE PHOTOGRAPH - FULL NATURAL COLOR & CRISP APPEARANCE */}
-                      <img
-                        src="/images/profile.png"
-                        alt="Skandan D Gowda — Primary Profile Photograph"
-                        className="w-full h-full object-cover object-[center_18%] transition-transform duration-700 ease-out group-hover/img:scale-105"
-                      />
-                      
-                      {/* Subtle Bottom Fade Overlay */}
-                      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-noir-950/90 via-noir-950/40 to-transparent pointer-events-none" />
-
-                      {/* Authentic Verification Stamp */}
-                      <div className="absolute bottom-3 left-3 right-3 p-2.5 rounded-lg bg-noir-900/90 backdrop-blur-md border border-white/15 flex items-center justify-between text-xs font-mono">
-                        <div className="flex items-center gap-1.5 text-emerald-400">
-                          <ShieldCheck className="w-4 h-4" />
-                          <span className="font-semibold text-slate-200">Skandan D Gowda</span>
-                        </div>
-                        <span className="text-[10px] text-bronze-300">3rd Year B.E.</span>
-                      </div>
-                    </>
+                    /* 
+                       ORIGINAL AUTHENTIC PROFILE PHOTOGRAPH
+                       - Full genuine natural color
+                       - NO grayscale or black-and-white filter
+                       - NO halftone texture
+                       - NO golden rim lighting
+                       - NO background removal (natural trees, mist, lake preserved)
+                       - NO cinematic shadows or gradient overlays
+                       - NO photo masks
+                    */
+                    <img
+                      src="/images/profile.png"
+                      alt="Skandan D Gowda — Primary Profile Photograph"
+                      className="w-full h-full object-cover object-[center_18%] transition-transform duration-700 ease-out group-hover/img:scale-105"
+                    />
                   )}
                 </div>
 
+                {/* Authentic Verification Stamp (Placed outside the photo container to ensure 0% obstruction of the image) */}
+                <div className="p-2.5 rounded-lg bg-white/5 border border-white/10 flex items-center justify-between text-xs font-mono">
+                  <div className="flex items-center gap-1.5 text-emerald-400">
+                    <ShieldCheck className="w-4 h-4" />
+                    <span className="font-semibold text-slate-200">Skandan D Gowda</span>
+                  </div>
+                  <span className="text-[10px] text-cyan-300 font-medium">3rd Year B.E.</span>
+                </div>
+
                 {/* Card Quick Stats */}
-                <div className="grid grid-cols-2 gap-2 text-center pt-1 font-mono text-xs">
+                <div className="grid grid-cols-2 gap-2 text-center font-mono text-xs">
                   <div className="p-2.5 rounded-lg bg-white/5 border border-white/5">
                     <span className="block text-slate-400 text-[10px]">CURRENT CGPA</span>
-                    <span className="font-bold text-bronze-300">{personalData.cgpa}</span>
+                    <span className="font-bold text-cyan-400">{personalData.cgpa}</span>
                   </div>
                   <div className="p-2.5 rounded-lg bg-white/5 border border-white/5">
                     <span className="block text-slate-400 text-[10px]">DEPARTMENT</span>
-                    <span className="font-bold text-slate-200">ISE @ Atria</span>
+                    <span className="font-bold text-purple-400">ISE @ Atria</span>
                   </div>
                 </div>
 
@@ -288,7 +291,7 @@ export function Hero() {
           transition={{ repeat: Infinity, duration: 1.8 }}
           className="w-5 h-8 rounded-full border border-slate-500/60 flex items-start justify-center p-1"
         >
-          <span className="w-1.5 h-2 rounded-full bg-bronze-400" />
+          <span className="w-1.5 h-2 rounded-full bg-cyan-400" />
         </motion.div>
       </div>
 
