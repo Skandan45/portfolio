@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, ArrowDown, UserCheck, Orbit, ShieldCheck } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowDown, Sparkles, UserCheck, Orbit, ShieldCheck } from 'lucide-react';
 import { personalData, technicalBadges } from '../data/portfolioData';
 import { HeroScene } from '../three/HeroScene';
 
 export function Hero() {
-  const [viewMode, setViewMode] = useState('photo'); // 'photo' by default
+  const [viewMode, setViewMode] = useState('photo'); // 'photo' default showcase
 
   const scrollToExplore = (e) => {
     e.preventDefault();
@@ -20,54 +20,57 @@ export function Hero() {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-24 pb-16 bg-[#050505] film-grain">
+    <section id="hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-24 pb-16 bg-[#030508]">
       
-      {/* SUBTLE 3D NOIR BACKGROUND: Single Abstract Metallic Sculpture with Bronze Reflections */}
+      {/* 3D THE DIGITAL DIMENSION: Giant Floating Glass Sculptures, Liquid Light Ribbons & Architecture */}
       <HeroScene
         showAvatar={viewMode === 'avatar'}
         avatarPosition={[2.2, -0.3, 0]}
       />
 
-      {/* Atmospheric Cinematic Gradients (Deep matte black & soft charcoal vignettes) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/85 to-transparent pointer-events-none w-full md:w-3/5 z-[1]" />
-      <div className="absolute bottom-0 inset-x-0 h-36 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none z-[1]" />
-      <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[#050505]/80 to-transparent pointer-events-none z-[1]" />
+      {/* Atmospheric Cinematic Gradients (Deep midnight black & dark navy vignettes) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#030508] via-[#030508]/85 to-transparent pointer-events-none w-full md:w-3/5 z-[1]" />
+      <div className="absolute bottom-0 inset-x-0 h-36 bg-gradient-to-t from-[#030508] to-transparent pointer-events-none z-[1]" />
+      <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[#030508]/80 to-transparent pointer-events-none z-[1]" />
 
-      {/* Atmospheric Soft Charcoal Fill */}
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[550px] h-[550px] spotlight-charcoal pointer-events-none z-0" />
+      {/* Atmospheric Spatial Light Pools (Electric Blue & Violet Fill) */}
+      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[160px] pointer-events-none z-0" />
+      <div className="absolute bottom-1/4 right-10 w-[450px] h-[450px] bg-purple-600/10 rounded-full blur-[170px] pointer-events-none z-0" />
 
       {/* Hero Foreground Content: Balanced 2-Column Composition */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-[calc(100vh-140px)]">
           
-          {/* LEFT SIDE: Clean Editorial Typography & Introduction (7 Cols) */}
+          {/* LEFT SIDE: Clean, Crisp Typography & Identity (7 Cols) */}
           <motion.div
             initial={{ opacity: 0, x: -25 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 space-y-6 text-left"
           >
-            {/* Intro Eyebrow Tagline */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-noir-900/90 border border-bronze-500/30 backdrop-blur-md shadow-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-bronze-400"></span>
-              <span className="text-[11px] font-mono font-semibold tracking-wider text-bronze-300 uppercase">
+            {/* Intro Greeting Pill */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-cyan-400/25 backdrop-blur-md shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+              <span className="text-xs font-mono font-semibold tracking-wider text-cyan-300 uppercase">
                 HELLO, I'M
               </span>
             </div>
 
-            {/* Candidate Name in Editorial Typography */}
+            {/* Candidate Name */}
             <div className="space-y-1.5">
-              <h1 className="text-4xl sm:text-6xl xl:text-7xl font-editorial font-normal tracking-tight text-white leading-tight">
+              <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight font-display text-white">
                 <span className="block">SKANDAN</span>
-                <span className="text-gradient-bronze block">D GOWDA</span>
+                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent block">
+                  D GOWDA
+                </span>
               </h1>
               
               <div className="flex flex-wrap items-center gap-2 pt-2">
                 <span className="text-base sm:text-xl font-semibold text-slate-200">
                   Third-Year Engineering Student
                 </span>
-                <span className="text-bronze-500 font-mono hidden sm:inline">•</span>
-                <span className="text-base sm:text-xl font-semibold text-bronze-300">
+                <span className="text-slate-600 hidden sm:inline">•</span>
+                <span className="text-base sm:text-xl font-semibold text-cyan-400">
                   Aspiring Software Developer
                 </span>
               </div>
@@ -91,9 +94,9 @@ export function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.25 + idx * 0.08 }}
                     whileHover={{ scale: 1.05, y: -2 }}
-                    className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-noir-900/80 border border-bronze-500/25 hover:border-bronze-400/60 backdrop-blur-md transition-all shadow-sm group"
+                    className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900/80 border border-white/10 hover:border-cyan-400/40 backdrop-blur-md transition-all shadow-sm group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-bronze-400" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 group-hover:shadow-[0_0_8px_#22D3EE]" />
                     <span className="font-mono text-xs font-semibold text-slate-200 group-hover:text-white transition-colors">
                       {badge}
                     </span>
@@ -107,7 +110,7 @@ export function Hero() {
               <a
                 href="#projects"
                 onClick={scrollToExplore}
-                className="px-7 py-3 rounded-full font-mono text-xs font-semibold tracking-wider bg-bronze-500 hover:bg-bronze-400 text-noir-950 transition-all shadow-bronze-glow hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2"
+                className="px-7 py-3 rounded-full font-mono text-xs font-semibold tracking-wider bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-slate-950 transition-all shadow-[0_0_25px_-5px_rgba(34,211,238,0.4)] hover:shadow-[0_0_35px_-5px_rgba(34,211,238,0.6)] hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2"
               >
                 <span>EXPLORE MY WORK</span>
                 <ArrowDown className="w-3.5 h-3.5" />
@@ -116,7 +119,7 @@ export function Hero() {
               <a
                 href="#contact"
                 onClick={scrollToConnect}
-                className="px-7 py-3 rounded-full font-mono text-xs font-semibold tracking-wider bg-noir-900/80 hover:bg-noir-800 text-slate-200 hover:text-white transition-all border border-bronze-500/40 hover:border-bronze-400 backdrop-blur-md hover:scale-[1.02] active:scale-[0.98]"
+                className="px-7 py-3 rounded-full font-mono text-xs font-semibold tracking-wider bg-slate-900/80 hover:bg-slate-800 text-slate-200 hover:text-white transition-all border border-white/15 hover:border-cyan-400/50 backdrop-blur-md hover:scale-[1.02] active:scale-[0.98]"
               >
                 LET'S CONNECT
               </a>
@@ -128,7 +131,7 @@ export function Hero() {
                 href={personalData.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-bronze-300 transition-colors text-xs font-mono flex items-center gap-1.5"
+                className="hover:text-cyan-400 transition-colors text-xs font-mono flex items-center gap-1.5"
                 aria-label="GitHub"
               >
                 <Github className="w-3.5 h-3.5" />
@@ -141,7 +144,7 @@ export function Hero() {
                 href={personalData.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-bronze-300 transition-colors text-xs font-mono flex items-center gap-1.5"
+                className="hover:text-cyan-400 transition-colors text-xs font-mono flex items-center gap-1.5"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-3.5 h-3.5" />
@@ -152,7 +155,7 @@ export function Hero() {
 
               <a
                 href={`mailto:${personalData.email}`}
-                className="hover:text-bronze-300 transition-colors text-xs font-mono flex items-center gap-1.5"
+                className="hover:text-cyan-400 transition-colors text-xs font-mono flex items-center gap-1.5"
                 aria-label="Email"
               >
                 <Mail className="w-3.5 h-3.5" />
@@ -161,7 +164,7 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE: Restored Original Profile Photograph Component (5 Cols) */}
+          {/* RIGHT SIDE: Real Photograph & 3D Hero Visual Showcase (5 Cols) */}
           <motion.div
             initial={{ opacity: 0, x: 25 }}
             animate={{ opacity: 1, x: 0 }}
@@ -196,11 +199,11 @@ export function Hero() {
 
             {/* Authentic Profile Card in Premium Frosted Glass Frame */}
             <div className="w-full max-w-sm relative group">
-              {/* Original Electric-Blue & Violet Subtle Glowing Rim (Preserved from original implementation) */}
+              {/* Subtle Electric-Blue and Purple Glowing Rim Border */}
               <div className="absolute -inset-1 bg-gradient-to-tr from-blue-600/30 via-cyan-400/25 to-purple-600/35 rounded-3xl blur-xl opacity-50 group-hover:opacity-90 transition duration-700 pointer-events-none" />
 
               {/* Glass Frame Container */}
-              <div className="relative rounded-2xl bg-[#080c14]/90 border border-white/15 p-5 backdrop-blur-2xl shadow-2xl space-y-4 transition-all duration-500 group-hover:border-cyan-400/40 group-hover:shadow-[0_20px_60px_-15px_rgba(37,99,235,0.3)]">
+              <div className="relative rounded-2xl bg-[#060a14]/90 border border-white/15 p-5 backdrop-blur-2xl shadow-2xl space-y-4 transition-all duration-500 group-hover:border-cyan-400/40 group-hover:shadow-[0_20px_60px_-15px_rgba(37,99,235,0.3)]">
                 
                 {/* HUD Header */}
                 <div className="flex items-center justify-between border-b border-white/10 pb-3">
@@ -231,12 +234,13 @@ export function Hero() {
                     </div>
                   ) : (
                     /* 
-                       ORIGINAL AUTHENTIC PROFILE PHOTOGRAPH
+                       AUTHENTIC REAL PROFILE PHOTOGRAPH
                        - Full genuine natural color
+                       - Preserves real face and appearance
                        - NO grayscale or black-and-white filter
                        - NO halftone texture
-                       - NO golden rim lighting
-                       - NO background removal (natural trees, mist, lake preserved)
+                       - NO golden lighting
+                       - NO background removal (lake and scenic background preserved)
                        - NO cinematic shadows or gradient overlays
                        - NO photo masks
                     */
@@ -274,7 +278,7 @@ export function Hero() {
 
             {/* Note on Authenticity */}
             <p className="text-[11px] font-mono text-slate-400 text-center mt-3 max-w-xs">
-              ⚡ Authentic photograph verified • Information Science Engineering
+              ⚡ Authentic photograph framed in The Digital Dimension 3D environment.
             </p>
           </motion.div>
 
