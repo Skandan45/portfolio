@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, ArrowDown, Sparkles, Terminal, Code2, UserCheck, Orbit, ShieldCheck } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowDown, Sparkles, Terminal, Code2, UserCheck, Orbit, ShieldCheck, ArrowUpRight } from 'lucide-react';
 import { personalData, technicalBadges } from '../data/portfolioData';
 import { HeroScene } from '../three/HeroScene';
 
 export function Hero() {
-  const [viewMode, setViewMode] = useState('hybrid'); // 'hybrid', 'avatar', 'photo'
+  const [viewMode, setViewMode] = useState('photo'); // 'photo' by default to showcase the new real photograph
 
   const scrollToExplore = (e) => {
     e.preventDefault();
@@ -21,16 +21,17 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-24 pb-16">
-      {/* 3D Galaxy Canvas Background & 3D Interactive Scene */}
+      {/* 3D INTERDIMENSIONAL ENERGY PORTAL CANVAS */}
       <HeroScene
-        showAvatar={viewMode === 'hybrid' || viewMode === 'avatar'}
+        showAvatar={viewMode === 'avatar'}
         avatarPosition={[2.2, -0.3, 0]}
       />
 
       {/* Cyber Grid Overlay */}
-      <div className="absolute inset-0 cyber-grid opacity-25 pointer-events-none" />
+      <div className="absolute inset-0 cyber-grid opacity-20 pointer-events-none" />
 
-      {/* Radial Gradient Glows */}
+      {/* Atmospheric Volumetric Glows */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-r from-electric-500/15 via-cyan-400/10 to-neon-purple/20 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute top-1/4 -left-48 w-96 h-96 bg-electric-500/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-neon-purple/20 rounded-full blur-[150px] pointer-events-none" />
 
@@ -105,7 +106,7 @@ export function Hero() {
               <a
                 href="#projects"
                 onClick={scrollToExplore}
-                className="px-6 py-3.5 rounded-xl font-mono text-xs font-bold tracking-wider bg-gradient-to-r from-electric-500 via-cyan-400 to-neon-purple text-slate-950 hover:opacity-95 transition-all shadow-glow-cyan hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2"
+                className="px-6 py-3.5 rounded-xl font-mono text-xs font-bold tracking-wider bg-gradient-to-r from-electric-500 via-cyan-400 to-neon-purple text-slate-950 hover:opacity-95 transition-all shadow-glow-cyan flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
               >
                 <span>EXPLORE MY WORK</span>
                 <ArrowDown className="w-4 h-4" />
@@ -156,7 +157,7 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE: Real Photograph & Stylized 3D Avatar (5 Cols) */}
+          {/* RIGHT SIDE: Newly Uploaded Real Photograph in Premium Glass Frame (5 Cols) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -166,54 +167,43 @@ export function Hero() {
             {/* View Mode Toggle Switch */}
             <div className="mb-4 flex items-center p-1 rounded-full bg-navy-900/80 border border-white/15 backdrop-blur-xl shadow-lg">
               <button
-                onClick={() => setViewMode('hybrid')}
-                className={`px-3 py-1 rounded-full text-[11px] font-mono transition-all flex items-center gap-1.5 ${
-                  viewMode === 'hybrid'
-                    ? 'bg-gradient-to-r from-electric-500 to-neon-purple text-white shadow-glow-blue'
-                    : 'text-slate-400 hover:text-slate-200'
-                }`}
-              >
-                <Orbit className="w-3.5 h-3.5" />
-                <span>3D + Authentic</span>
-              </button>
-              <button
                 onClick={() => setViewMode('photo')}
-                className={`px-3 py-1 rounded-full text-[11px] font-mono transition-all flex items-center gap-1.5 ${
+                className={`px-3.5 py-1 rounded-full text-[11px] font-mono transition-all flex items-center gap-1.5 ${
                   viewMode === 'photo'
                     ? 'bg-gradient-to-r from-electric-500 to-cyan-400 text-slate-950 font-bold shadow-glow-cyan'
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
                 <UserCheck className="w-3.5 h-3.5" />
-                <span>Real Portrait</span>
+                <span>Primary Portrait</span>
               </button>
               <button
                 onClick={() => setViewMode('avatar')}
-                className={`px-3 py-1 rounded-full text-[11px] font-mono transition-all flex items-center gap-1.5 ${
+                className={`px-3.5 py-1 rounded-full text-[11px] font-mono transition-all flex items-center gap-1.5 ${
                   viewMode === 'avatar'
                     ? 'bg-gradient-to-r from-neon-purple to-pink-500 text-white shadow-glow-purple'
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                <Terminal className="w-3.5 h-3.5" />
-                <span>3D Avatar Full</span>
+                <Orbit className="w-3.5 h-3.5" />
+                <span>3D Avatar Model</span>
               </button>
             </div>
 
             {/* Authentic Profile Card HUD */}
             <div className="w-full max-w-sm relative group">
-              {/* Glowing Outer Frame */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-electric-500 to-neon-purple rounded-3xl blur-lg opacity-40 group-hover:opacity-75 transition duration-500"></div>
+              {/* Glowing Electric-Blue & Purple Gradient Border Frame */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-electric-500 to-neon-purple rounded-3xl blur-xl opacity-40 group-hover:opacity-85 transition duration-500"></div>
 
               {/* Glass Card Container */}
-              <div className="relative rounded-2xl bg-navy-900/90 border border-white/15 p-5 backdrop-blur-xl shadow-2xl space-y-4">
+              <div className="relative rounded-2xl bg-navy-900/90 border border-white/15 p-5 backdrop-blur-2xl shadow-2xl space-y-4 transition-all duration-300 group-hover:border-cyan-400/40">
                 
                 {/* HUD Header */}
                 <div className="flex items-center justify-between border-b border-white/10 pb-3">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-                    <span className="text-[11px] font-mono tracking-wider text-cyan-300">
-                      BIOMETRIC ID • VERIFIED
+                    <span className="text-[11px] font-mono tracking-wider text-cyan-300 font-semibold">
+                      AUTHENTIC PROFILE • VERIFIED
                     </span>
                   </div>
                   <span className="text-[10px] font-mono text-slate-400">
@@ -222,34 +212,38 @@ export function Hero() {
                 </div>
 
                 {/* Profile Visual Display */}
-                <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-white/10 bg-navy-800/80">
+                <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-white/15 bg-navy-950/80 shadow-inner group/img">
                   {viewMode === 'avatar' ? (
                     <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center space-y-3 bg-gradient-to-b from-navy-800 to-navy-950">
                       <div className="w-16 h-16 rounded-full bg-neon-purple/20 border border-neon-purple/50 flex items-center justify-center text-neon-purple shadow-glow-purple">
                         <Orbit className="w-8 h-8 animate-spin-slow" />
                       </div>
-                      <p className="text-xs font-mono text-cyan-300">
-                        Interactive 3D Stylized Developer Avatar
+                      <p className="text-xs font-mono text-cyan-300 font-semibold">
+                        Interactive 3D Stylized Character
                       </p>
                       <p className="text-[11px] text-slate-400">
-                        Rendered with real-time Three.js lighting & pointer responsiveness in background canvas.
+                        Rendered in the real-time Three.js scene responding smoothly to pointer coordinates.
                       </p>
                     </div>
                   ) : (
                     <>
+                      {/* NEWLY UPLOADED REAL PROFILE PHOTOGRAPH */}
                       <img
-                        src={personalData.photos.profile}
-                        alt="Skandan D Gowda - Authentic Profile Photograph"
-                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        src="/images/profile.png"
+                        alt="Skandan D Gowda — Primary Profile Photograph"
+                        className="w-full h-full object-cover object-[center_18%] transition-transform duration-700 ease-out group-hover/img:scale-105"
                       />
                       
+                      {/* Gradient Ambient Overlay at bottom */}
+                      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-navy-950 via-navy-950/70 to-transparent pointer-events-none" />
+
                       {/* Authentic Verification Stamp */}
                       <div className="absolute bottom-3 left-3 right-3 p-2.5 rounded-lg bg-navy-900/85 backdrop-blur-md border border-white/15 flex items-center justify-between text-xs font-mono">
                         <div className="flex items-center gap-1.5 text-emerald-400">
                           <ShieldCheck className="w-4 h-4" />
                           <span className="font-semibold">Skandan D Gowda</span>
                         </div>
-                        <span className="text-[10px] text-slate-400">3rd Year B.E.</span>
+                        <span className="text-[10px] text-cyan-300">3rd Year B.E.</span>
                       </div>
                     </>
                   )}
@@ -257,12 +251,12 @@ export function Hero() {
 
                 {/* Card Quick Stats */}
                 <div className="grid grid-cols-2 gap-2 text-center pt-1 font-mono text-xs">
-                  <div className="p-2 rounded-lg bg-white/5 border border-white/5">
+                  <div className="p-2.5 rounded-lg bg-white/5 border border-white/5">
                     <span className="block text-slate-400 text-[10px]">CURRENT CGPA</span>
                     <span className="font-bold text-cyan-400">{personalData.cgpa}</span>
                   </div>
-                  <div className="p-2 rounded-lg bg-white/5 border border-white/5">
-                    <span className="block text-slate-400 text-[10px]">ENGINEERING</span>
+                  <div className="p-2.5 rounded-lg bg-white/5 border border-white/5">
+                    <span className="block text-slate-400 text-[10px]">DEPARTMENT</span>
                     <span className="font-bold text-neon-purple">ISE @ Atria</span>
                   </div>
                 </div>
@@ -272,7 +266,7 @@ export function Hero() {
 
             {/* Note on Authenticity */}
             <p className="text-[11px] font-mono text-slate-400 text-center mt-3 max-w-xs">
-              ⚡ Authentic profile image paired with real-time Three.js 3D character environment.
+              ⚡ Authentic photograph with real-time 3D Interdimensional Portal background.
             </p>
           </motion.div>
 

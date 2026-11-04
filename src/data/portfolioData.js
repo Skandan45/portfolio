@@ -22,7 +22,7 @@ export const personalData = {
     "I continuously work on improving my technical knowledge and developing real-world applications."
   ],
   photos: {
-    profile: "/images/skandan_profile.jpg",
+    profile: "/images/profile.png",
     lifestyle: "/images/skandan_lifestyle.jpg"
   }
 };

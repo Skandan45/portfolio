@@ -1,23 +1,21 @@
 import React, { Suspense, useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import { GalaxyBackground } from './GalaxyBackground';
+import { DimensionalPortal } from './DimensionalPortal';
 import { Avatar3D } from './Avatar3D';
-import { FloatingObjects } from './FloatingObjects';
 
-function SceneLighting() {
+function CinematicStudioLighting() {
   return (
     <>
-      <ambientLight intensity={0.4} />
-      <directionalLight position={[5, 8, 5]} intensity={1.5} color="#FFFFFF" />
-      <pointLight position={[-4, 3, 2]} intensity={3} color="#2563EB" distance={15} />
-      <pointLight position={[4, 2, -2]} intensity={4} color="#8B5CF6" distance={15} />
-      <pointLight position={[0, -3, 3]} intensity={1.8} color="#22D3EE" distance={10} />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[6, 8, 6]} intensity={1.8} color="#FFFFFF" />
+      <pointLight position={[-5, 4, 3]} intensity={3.5} color="#2563EB" distance={18} />
+      <pointLight position={[5, 3, -2]} intensity={4.5} color="#8B5CF6" distance={18} />
+      <pointLight position={[0, -4, 4]} intensity={2.2} color="#22D3EE" distance={12} />
     </>
   );
 }
 
-export function HeroScene({ showAvatar = true, avatarPosition = [1.8, -0.2, 0] }) {
+export function HeroScene({ showAvatar = true, avatarPosition = [2.2, -0.3, 0] }) {
   const [isMobile, setIsMobile] = useState(false);
   const [hasWebGL, setHasWebGL] = useState(true);
 
@@ -43,9 +41,8 @@ export function HeroScene({ showAvatar = true, avatarPosition = [1.8, -0.2, 0] }
   if (!hasWebGL) {
     return (
       <div className="absolute inset-0 bg-[#050509] overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 cyber-grid opacity-30"></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-electric-500/10 blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-neon-purple/15 blur-3xl"></div>
+        <div className="absolute inset-0 cyber-grid opacity-25"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-cyan-500/20 via-electric-500/20 to-neon-purple/20 blur-3xl"></div>
       </div>
     );
   }
@@ -53,7 +50,7 @@ export function HeroScene({ showAvatar = true, avatarPosition = [1.8, -0.2, 0] }
   return (
     <div className="absolute inset-0 z-0 pointer-events-auto">
       <Canvas
-        camera={{ position: [0, 0, 5.5], fov: 50 }}
+        camera={{ position: [0, 0, 5.8], fov: 48 }}
         gl={{
           antialias: true,
           alpha: true,
@@ -61,19 +58,16 @@ export function HeroScene({ showAvatar = true, avatarPosition = [1.8, -0.2, 0] }
         }}
         dpr={[1, 2]}
       >
-        <SceneLighting />
+        <CinematicStudioLighting />
         
         <Suspense fallback={null}>
-          {/* Galaxy Particle System */}
-          <GalaxyBackground count={isMobile ? 1800 : 3800} speed={0.06} />
+          {/* CINEMATIC INTERDIMENSIONAL ENERGY PORTAL */}
+          <DimensionalPortal isMobile={isMobile} />
 
-          {/* Floating Geometric Objects */}
-          <FloatingObjects />
-
-          {/* Stylized 3D Character Avatar */}
+          {/* Stylized 3D Character Avatar (when active) */}
           {showAvatar && (
             <Avatar3D
-              scale={isMobile ? 0.85 : 1.15}
+              scale={isMobile ? 0.8 : 1.15}
               position={isMobile ? [0, -0.5, 0] : avatarPosition}
             />
           )}
