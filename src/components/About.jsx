@@ -1,9 +1,10 @@
 import React, { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
-import { GraduationCap, MapPin, Code, Cpu, User, CheckCircle2, Sparkles } from 'lucide-react';
+import { GraduationCap, MapPin, Code, Cpu, User, CheckCircle2, Sparkles, Orbit } from 'lucide-react';
 import { personalData } from '../data/portfolioData';
 import { FloatingObjects } from '../three/FloatingObjects';
+import { Avatar3D } from '../three/Avatar3D';
 
 export function About() {
   const highlights = [
@@ -75,7 +76,7 @@ export function About() {
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Column: Authentic Lifestyle Photograph (5 Cols) */}
+          {/* Left Column: Interactive 3D AI Avatar (5 Cols) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -87,30 +88,40 @@ export function About() {
               {/* Subtle Glowing Corner Glow */}
               <div className="absolute -inset-1 bg-gradient-to-tr from-blue-600/20 via-cyan-400/20 to-purple-600/20 rounded-2xl blur-lg opacity-40 group-hover:opacity-80 transition pointer-events-none" />
 
-              <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-slate-950">
-                {/* 
-                   AUTHENTIC LIFESTYLE PHOTOGRAPH
-                   - Clean authentic colors
-                   - Preserves original appearance & lighting
-                   - NO destructive grayscale or halftone degradation
-                */}
-                <img
-                  src={personalData.photos.lifestyle}
-                  alt="Skandan D Gowda — Authentic Portrait"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-700 ease-out"
-                  loading="lazy"
-                />
+              <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-gradient-to-b from-[#0B1020] to-[#050509] border border-white/10">
+                {/* 3D INTERACTIVE AI AVATAR VIEWPORT */}
+                <div className="w-full h-full relative">
+                  <Canvas
+                    camera={{ position: [0, 0, 4.2], fov: 45 }}
+                    gl={{ antialias: true, alpha: true }}
+                  >
+                    <ambientLight intensity={0.7} />
+                    <directionalLight position={[3, 3, 3]} intensity={1.5} />
+                    <Suspense fallback={null}>
+                      <Avatar3D scale={1.08} position={[0, -0.32, 0]} />
+                    </Suspense>
+                  </Canvas>
+                </div>
 
                 {/* Ambient Top Tag */}
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-lg bg-[#050509]/85 backdrop-blur-md border border-white/10 flex items-center gap-2">
+                <div className="absolute top-3 left-3 px-3 py-1 rounded-lg bg-[#050509]/85 backdrop-blur-md border border-white/10 flex items-center gap-2 pointer-events-none">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                  <span className="text-[11px] font-mono text-cyan-300 font-semibold tracking-wider">
-                    SKANDAN D GOWDA
+                  <span className="text-[11px] font-mono text-cyan-300 font-semibold tracking-wider flex items-center gap-1.5">
+                    <Orbit className="w-3 h-3 text-cyan-400" />
+                    SKANDAN D GOWDA • 3D AI AVATAR
+                  </span>
+                </div>
+
+                {/* Subtle Interactive Instruction Banner */}
+                <div className="absolute bottom-14 inset-x-3 text-center pointer-events-none">
+                  <span className="text-[10px] font-mono text-cyan-400/80 bg-[#050509]/75 backdrop-blur-md px-2.5 py-1 rounded-full border border-cyan-400/20 inline-flex items-center gap-1">
+                    <Cpu className="w-2.5 h-2.5 text-cyan-400" />
+                    Move cursor to interact with 3D avatar
                   </span>
                 </div>
 
                 {/* Ambient Bottom Banner */}
-                <div className="absolute bottom-3 inset-x-3 p-3 rounded-xl bg-[#050509]/85 backdrop-blur-md border border-white/10 text-xs font-mono">
+                <div className="absolute bottom-3 inset-x-3 p-3 rounded-xl bg-[#050509]/85 backdrop-blur-md border border-white/10 text-xs font-mono pointer-events-none">
                   <div className="flex items-center justify-between text-slate-300">
                     <span className="text-slate-300">Academic Status: Third Year Student</span>
                     <span className="text-cyan-400 font-bold">CGPA: {personalData.cgpa}</span>
