@@ -8,47 +8,58 @@ export default {
   theme: {
     extend: {
       colors: {
-        noir: {
-          950: '#030303',
-          900: '#050505',
-          850: '#0A0A0A',
-          800: '#101010',
-          700: '#171717',
-          600: '#262626',
+        'deep-black': '#050509',
+        'dark-navy': '#0B1020',
+        'electric-blue': '#2563EB',
+        'neon-purple': '#8B5CF6',
+        'cyan-accent': '#22D3EE',
+        navy: {
+          950: '#050509',
+          900: '#0B1020',
+          850: '#0F172A',
+          800: '#131B2E',
+          700: '#1E293B',
+          600: '#334155',
         },
-        charcoal: {
-          900: '#0F0F10',
-          800: '#151517',
-          700: '#1E1E22',
+        electric: {
+          300: '#93C5FD',
+          400: '#60A5FA',
+          500: '#2563EB',
+          600: '#1D4ED8',
         },
-        bronze: {
-          200: '#E8D5C4',
-          300: '#D4AF7A',
-          400: '#C59B6D',
-          500: '#8C6239',
-          600: '#714B24',
-          700: '#523416',
+        purple: {
+          400: '#A78BFA',
+          500: '#8B5CF6',
+          600: '#7C3AED',
         },
-        amber: {
-          muted: '#D97706',
-          warm: '#F59E0B',
-          glow: 'rgba(217, 119, 6, 0.15)',
+        cyan: {
+          300: '#67E8F9',
+          400: '#22D3EE',
+          500: '#06B6D4',
         }
       },
       fontFamily: {
-        editorial: ['"Playfair Display"', 'Georgia', 'serif'],
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+        display: ['"Space Grotesk"', '"Plus Jakarta Sans"', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
-      letterSpacing: {
-        widest: '.2em',
-        editorial: '.35em',
-      },
       boxShadow: {
-        'bronze-glow': '0 0 35px -5px rgba(140, 98, 57, 0.25)',
-        'amber-glow': '0 0 45px -8px rgba(217, 119, 6, 0.2)',
-        'portrait-shadow': '0 30px 60px -15px rgba(0, 0, 0, 0.9), 0 0 40px -10px rgba(140, 98, 57, 0.22)',
+        'glow-cyan': '0 0 25px -4px rgba(34, 211, 238, 0.45)',
+        'glow-purple': '0 0 30px -4px rgba(139, 92, 246, 0.45)',
+        'glow-blue': '0 0 30px -4px rgba(37, 99, 235, 0.45)',
+        'glass-card': '0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.1)',
+        'glass-hover': '0 16px 48px -8px rgba(37, 99, 235, 0.35), inset 0 0 0 1px rgba(34, 211, 238, 0.4)',
+      },
+      animation: {
+        'spin-slow': 'spin 20s linear infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'float-slow': 'float 6s ease-in-out infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        }
       }
     },
   },

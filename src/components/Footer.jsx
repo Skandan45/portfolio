@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Github, Linkedin, Mail, Heart, Sparkles } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Mail, Sparkles, Heart } from 'lucide-react';
 import { personalData, navLinks } from '../data/portfolioData';
 
 export function Footer() {
@@ -12,12 +12,12 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-white/10">
           
           {/* Brand Info (5 Cols) */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-2.5">
-              <span className="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-400 via-electric-500 to-neon-purple flex items-center justify-center text-slate-950 font-black text-sm shadow-glow-cyan">
+              <span className="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-400 via-blue-500 to-purple-500 flex items-center justify-center text-slate-950 font-black text-sm shadow-[0_0_15px_rgba(34,211,238,0.5)]">
                 S
               </span>
               <span className="text-xl font-extrabold tracking-wider font-display text-white">
@@ -37,7 +37,7 @@ export function Footer() {
                 href={personalData.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-navy-800/80 border border-white/10 hover:border-cyan-400 hover:text-cyan-400 transition-colors"
+                className="p-2.5 rounded-xl bg-[#0B1020] border border-white/10 hover:border-cyan-400 hover:text-cyan-400 transition-colors shadow-sm"
                 aria-label="GitHub"
               >
                 <Github className="w-4 h-4" />
@@ -46,14 +46,14 @@ export function Footer() {
                 href={personalData.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-navy-800/80 border border-white/10 hover:border-electric-400 hover:text-electric-300 transition-colors"
+                className="p-2.5 rounded-xl bg-[#0B1020] border border-white/10 hover:border-cyan-400 hover:text-cyan-400 transition-colors shadow-sm"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
                 href={`mailto:${personalData.email}`}
-                className="p-2.5 rounded-xl bg-navy-800/80 border border-white/10 hover:border-neon-purple hover:text-neon-purple transition-colors"
+                className="p-2.5 rounded-xl bg-[#0B1020] border border-white/10 hover:border-cyan-400 hover:text-cyan-400 transition-colors shadow-sm"
                 aria-label="Email"
               >
                 <Mail className="w-4 h-4" />
@@ -88,9 +88,9 @@ export function Footer() {
             <p className="text-xs text-slate-400 leading-relaxed font-mono">
               React 18 • Three.js • React Three Fiber • Drei • Tailwind CSS • Lenis Smooth Scroll
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-navy-800/80 border border-white/10 text-[11px] font-mono text-cyan-400">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Optimized for Vercel</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0B1020] border border-cyan-400/30 text-[11px] font-mono text-cyan-300">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Engineered for Vercel</span>
             </div>
           </div>
 
@@ -98,11 +98,11 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-slate-500">
-          <p>© {new Date().getFullYear()} Skandan D Gowda. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Skandan D Gowda. All verified credentials and portfolio assets preserved.</p>
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-navy-800/70 hover:bg-navy-700/80 border border-white/10 text-slate-300 hover:text-white transition-all hover:border-cyan-400/40"
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#0B1020] border border-white/10 hover:border-cyan-400/40 text-slate-300 hover:text-white transition-all text-xs font-mono"
           >
             <span>Back to top</span>
             <ArrowUp className="w-3.5 h-3.5 text-cyan-400" />

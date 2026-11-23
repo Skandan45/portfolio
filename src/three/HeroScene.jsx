@@ -1,6 +1,6 @@
 import React, { Suspense, useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { DigitalDimension } from './DigitalDimension';
+import { Galaxy } from './Galaxy';
 import { Avatar3D } from './Avatar3D';
 
 export function HeroScene({ showAvatar = false, avatarPosition = [2.2, -0.3, 0] }) {
@@ -28,8 +28,8 @@ export function HeroScene({ showAvatar = false, avatarPosition = [2.2, -0.3, 0] 
 
   if (!hasWebGL) {
     return (
-      <div className="absolute inset-0 bg-[#030508] overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-blue-600/10 via-cyan-500/5 to-purple-600/10 blur-3xl"></div>
+      <div className="absolute inset-0 bg-[#050509] overflow-hidden pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-blue-600/15 via-purple-600/15 to-cyan-400/15 blur-3xl"></div>
       </div>
     );
   }
@@ -37,7 +37,7 @@ export function HeroScene({ showAvatar = false, avatarPosition = [2.2, -0.3, 0] 
   return (
     <div className="absolute inset-0 z-0 pointer-events-auto">
       <Canvas
-        camera={{ position: [0, 0, 5.5], fov: 46 }}
+        camera={{ position: [0, 0, 5.8], fov: 48 }}
         gl={{
           antialias: true,
           alpha: true,
@@ -46,14 +46,18 @@ export function HeroScene({ showAvatar = false, avatarPosition = [2.2, -0.3, 0] 
         dpr={[1, 2]}
       >
         <Suspense fallback={null}>
-          {/* THE DIGITAL DIMENSION: Floating Glass Sculptures, Liquid Light Ribbons & Architecture */}
-          <DigitalDimension isMobile={isMobile} />
+          {/* Ambient Cosmic Lights */}
+          <ambientLight intensity={0.6} />
+          <directionalLight position={[5, 5, 5]} intensity={1.2} color="#FFFFFF" />
 
-          {/* Stylized 3D Avatar (when user toggles) */}
+          {/* FULL-SCREEN IMMERSIVE 3D GALAXY ENVIRONMENT */}
+          <Galaxy isMobile={isMobile} />
+
+          {/* STYLIZED 3D AVATAR CHARACTER */}
           {showAvatar && (
             <Avatar3D
-              scale={isMobile ? 0.8 : 1.15}
-              position={isMobile ? [0, -0.5, 0] : avatarPosition}
+              scale={isMobile ? 0.9 : 1.2}
+              position={isMobile ? [0, -0.4, 0] : avatarPosition}
             />
           )}
         </Suspense>

@@ -9,27 +9,28 @@ Inspired by Awwwards websites, modern creative developer portfolios, and high-pe
 ## 🚀 Key Highlights & 3D Interactive Features
 
 1. **Main 3D Galaxy Environment (`Three.js` & `@react-three/fiber`)**:
-   - Over 3,800 procedural cosmic particles mapped into dual-spiral galactic arms.
+   - Over 6,000 procedural cosmic particles mapped into 4 logarithmic spiral galactic arms.
    - Cinematic three-point studio lighting with electric blue (`#2563EB`), cyan (`#22D3EE`), and neon purple (`#8B5CF6`).
+   - Deep background starfield of 2,200 twinkling stars and volumetric nebula dust.
    - Real-time mouse parallax, camera perspective tracking, and depth fields.
 
 2. **Stylized 3D Animated Developer Character (`Avatar3D.jsx`)**:
-   - Modern futuristic tech-wear blazer with glowing cyan/purple trim.
+   - Modern futuristic tech-wear blazer with glowing cyan/purple trim and collar accents.
    - Natural sinusoidal idle breathing and posture sway.
    - Head and gaze tracking responding smoothly to pointer coordinates.
    - Dual holographic orbiting rings with real-time rotational physics.
-   - Side-by-side integration with Skandan's verified authentic photograph in a biometric HUD card.
+   - Seamless interactive toggle with Skandan's verified authentic photograph in a biometric HUD card.
 
 3. **Interactive 3D Hardware Showcase (`LaptopShowcase.jsx`)**:
    - Precision 3D laptop chassis rendered with Three.js aluminum shaders, glowing keyboard deck, trackpad, and chamfered LEDs.
    - Screen displays authentic high-resolution screenshots of the primary featured project: **MoodFlix (Mood-Based Movie Recommendation System)**.
-   - Dynamic 5-screenshot texture switcher allowing live inspection of the landing page, dashboard NLP workspace, system architecture, and catalog.
+   - Dynamic 5-screenshot texture switcher allowing live inspection of the landing page, dashboard NLP workspace, system architecture, catalog, and overview.
 
-4. **3D Tilted Glassmorphism Certificate Gallery (`TiltCertificateCard.jsx`)**:
+4. **3D Tilted Glassmorphism Certificate Gallery (`Certifications.jsx`)**:
    - Floating 3D certificate cards that dynamically tilt on the X/Y axes according to cursor position.
    - Full modal viewer with PDF embed and high-res image previews for all 5 verified credentials:
-     - *What Is Generative AI?* — LinkedIn Learning
-     - *Cybersecurity Analyst Job Simulation* — Tata / Forage
+     - *What Is Generative AI?* — LinkedIn Learning (27 August 2026)
+     - *Cybersecurity Analyst Job Simulation* — Tata / Forage (17 August 2026)
      - *Web Development Internship Certificate* — SkillCraft Technology
      - *Web Development Internship Certificate* — InAmigos Foundation
      - *Letter of Recommendation* — SkillCraft Technology (Pranav Bansal, Tech Lead)
@@ -62,7 +63,7 @@ skandan-portfolio-3d/
 ├── public/
 │   ├── favicon.svg
 │   ├── images/
-│   │   ├── skandan_profile.jpg             # Authentic formal profile photograph
+│   │   ├── profile.png                     # Authentic formal profile photograph
 │   │   └── skandan_lifestyle.jpg           # Authentic lifestyle portrait
 │   ├── certificates/
 │   │   ├── skillcraft_internship_cert.png  # SkillCraft Certificate of Completion
@@ -93,76 +94,51 @@ skandan-portfolio-3d/
 │   │   ├── CertificateModal.jsx            # Document preview and download modal
 │   │   └── ProjectDetailModal.jsx          # Comprehensive MoodFlix architecture modal
 │   ├── three/
-│   │   ├── GalaxyBackground.jsx            # Procedural particle galaxy system
+│   │   ├── Galaxy.jsx                      # Procedural spiral particle galaxy system
 │   │   ├── Avatar3D.jsx                    # Stylized 3D character with pointer tracking
 │   │   ├── HeroScene.jsx                   # Fullscreen R3F canvas wrapper
 │   │   ├── LaptopShowcase.jsx              # Realistic 3D laptop with dynamic screen texture
 │   │   └── FloatingObjects.jsx             # Orbiting wireframe polyhedra
 │   ├── data/
-│   │   └── portfolioData.js                # Centralized verified candidate dataset
+│   │   └── portfolioData.js                # Single source of truth for portfolio data
 │   ├── hooks/
-│   │   └── useSmoothScroll.js              # Lenis smooth scrolling hook
+│   │   └── useSmoothScroll.js              # Lenis smooth scroll hook
 │   ├── App.jsx                             # Main layout & modal controller
-│   ├── index.css                           # Tailwind directives & futuristic design tokens
-│   └── main.jsx                            # React 18 DOM mount point
-├── vercel.json                             # Production routing & build configuration
-├── vite.config.js                          # Vite bundler configuration & code splitting
-└── tailwind.config.js                      # Custom color themes & keyframes
+│   ├── main.jsx                            # React 18 DOM root
+│   └── index.css                           # Tailwind directives & futuristic design styles
+├── index.html                              # Root HTML with Google Fonts & metadata
+├── tailwind.config.js                      # Custom futuristic colors, fonts & shadows
+├── vite.config.js                          # Vite build pipeline with chunk splitting
+├── vercel.json                             # Vercel deployment configuration
+└── package.json                            # Project dependencies & scripts
 ```
 
 ---
 
 ## 💻 Local Development & Build
 
-### Prerequisites
-Node.js 18+ and npm installed.
-
-### 1. Install Dependencies
 ```bash
-npm install
-```
+# Navigate to the project directory
+cd skandan-portfolio-3d
 
-### 2. Start Development Server
-```bash
+# Start the development server
 npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### 3. Production Build
-```bash
+# Compile optimized production build
 npm run build
-```
-Creates an optimized production bundle inside the `dist/` directory with vendor chunking (`three-vendor`, `anim-vendor`, `react-vendor`).
 
-### 4. Preview Production Build
-```bash
+# Preview production build locally
 npm run preview
 ```
 
 ---
 
-## 🚢 Vercel Deployment Guide
+## 🌐 Deployment on Vercel
 
-1. Push this project folder to your GitHub repository:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: complete immersive 3D developer portfolio"
-   git remote add origin https://github.com/Skandan45/portfolio.git
-   git push -u origin main
-   ```
-2. Go to [Vercel](https://vercel.com) and click **"Add New Project"**.
-3. Select your GitHub repository.
-4. Framework Preset: **Vite** (automatically detected via `vercel.json`).
-5. Click **Deploy**. Your portfolio will be live worldwide on Vercel's Edge Network!
+The project is preconfigured with `vercel.json` for seamless deployment on Vercel:
 
----
-
-## 👤 Developer Profile
-
-- **Name**: Skandan D Gowda
-- **Degree**: Bachelor of Engineering (B.E.), Information Science & Engineering
-- **Institution**: Atria Institute of Technology, Bengaluru
-- **GitHub**: [github.com/Skandan45](https://github.com/Skandan45)
-- **LinkedIn**: [linkedin.com/in/skandan-d-gowda-208b52401](https://linkedin.com/in/skandan-d-gowda-208b52401)
-- **Email**: [skandangowda48@gmail.com](mailto:skandangowda48@gmail.com)
+1. Push the code to a GitHub repository (`skandan-portfolio-3d`).
+2. Import the repository into the **Vercel Dashboard**.
+3. Framework preset: **Vite** (auto-detected).
+4. Output directory: `dist`.
+5. Click **Deploy**.
